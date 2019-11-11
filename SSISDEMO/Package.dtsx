@@ -11,8 +11,8 @@
   DTS:LocaleID="1028"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{E4C3D43F-3F19-4BF1-95A4-C112C69F3C6C}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{7A289CAE-9C9B-4B1A-BC10-26C2E5816CC4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -80,101 +80,6 @@
         <pipeline
           version="1">
           <components>
-            <component
-              refId="Package\資料流程工作\ODBC 目的地"
-              componentClassID="Attunity.SSISODBCDst"
-              description="ODBC 目的地"
-              name="ODBC 目的地"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="要擷取之資料表的名稱。"
-                  expressionType="Notify"
-                  name="TableName"></property>
-                <property
-                  dataType="System.Int32"
-                  description="請指定每個批次要擷取的資料列數。"
-                  expressionType="Notify"
-                  name="BatchSize">1000</property>
-                <property
-                  dataType="System.Int32"
-                  description="在相同交易下插入的資料列數。"
-                  expressionType="Notify"
-                  name="TransactionSize">1000</property>
-                <property
-                  dataType="System.Int32"
-                  description="決定 LOB 資料行的區塊大小配置"
-                  expressionType="Notify"
-                  name="LobChunkSize">32768</property>
-                <property
-                  dataType="System.Int32"
-                  description="回到應用程式之前，要等待 SQL 陳述式執行的秒數。"
-                  expressionType="Notify"
-                  name="StatementTimeout">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="當資料來源的字碼頁資訊無法使用時，所要使用的字碼頁。"
-                  expressionType="Notify"
-                  name="DefaultCodePage">950</property>
-                <property
-                  dataType="System.Int32"
-                  description="用於插入資料的方法。可能的值為 'Batch' 或 'Row by row'。"
-                  expressionType="Notify"
-                  name="InsertMethod">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="繫結數值資料的 ODBC C 資料類型。"
-                  expressionType="Notify"
-                  name="BindNumericAs">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="決定元件繫結 (多) 位元組字串類型 (例如 SQL_CHAR、SQL_VARCHAR、SQL_LONGVARCHAR) 之資料行的方式。選項為: Unicode (SQL_C_WCHAR) 與 ANSI (SQL_C_CHAR)。"
-                  expressionType="Notify"
-                  name="BindCharColumnsAs">0</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\資料流程工作\ODBC 目的地.Connections[ODBCConnection]"
-                  description="用於存取資料庫的 ODBC 執行階段連線。"
-                  name="ODBCConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\資料流程工作\ODBC 目的地.Inputs[ODBC 目的地輸入]"
-                  errorOrTruncationOperation="插入"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="ODBC 目的地輸入"
-                  truncationRowDisposition="FailComponent">
-                  <externalMetadataColumns
-                    isUsed="True" />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\資料流程工作\ODBC 目的地.Outputs[ODBC 目的地錯誤輸出]"
-                  isErrorOut="true"
-                  name="ODBC 目的地錯誤輸出">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\資料流程工作\ODBC 目的地.Outputs[ODBC 目的地錯誤輸出].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\資料流程工作\ODBC 目的地.Outputs[ODBC 目的地錯誤輸出].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\資料流程工作\ODBC 目的地.Outputs[ODBC 目的地錯誤輸出].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\資料流程工作\ODBC 目的地.Outputs[ODBC 目的地錯誤輸出].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
             <component
               refId="Package\資料流程工作\OLE DB 目的地"
               componentClassID="Microsoft.OLEDBDestination"
@@ -460,13 +365,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="151,42"
-          Id="Package\資料流程工作\一般檔案來源"
-          TopLeft="121,41.2413806665809" />
-        <NodeLayout
           Size="159,42"
           Id="Package\資料流程工作\OLE DB 目的地"
           TopLeft="143,167.655177927187" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\資料流程工作\一般檔案來源"
+          TopLeft="121,41.2413806665809" />
         <EdgeLayout
           Id="Package\資料流程工作.Paths[一般檔案來源輸出]"
           TopLeft="196.5,83.2413806665809">
@@ -501,10 +406,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="149.5,42"
-          Id="Package\資料流程工作\ODBC 目的地"
-          TopLeft="365,118.045980893474" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
